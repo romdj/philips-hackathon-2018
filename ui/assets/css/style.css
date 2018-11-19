@@ -8413,10 +8413,10 @@ body[themebg-pattern="theme6"] {
 .pcoded[theme-layout="vertical"][vertical-nav-type="fullpage"] .pcoded-main-container, .pcoded[theme-layout="vertical"][vnavigation-view="view3"] .pcoded-main-container {
   position: static; }
 .pcoded .pcoded-header[header-theme="theme1"] {
-  background: #448aff; }
+  background: #ffffff; }
   .pcoded .pcoded-header[header-theme="theme1"] .input-group-addon,
   .pcoded .pcoded-header[header-theme="theme1"] a {
-    color: #fff; }
+    color: rgb(160, 160, 160); }
 .pcoded .pcoded-header[header-theme="theme2"] {
   background: #b71c1c; }
   .pcoded .pcoded-header[header-theme="theme2"] .input-group-addon,
@@ -16457,4 +16457,8 @@ body.dark {
 .fixed-button.active {
   bottom: 50px;
   opacity: 1;
+}
+
+.fixed-top-2 {
+  margin-top: 56px;
 }
