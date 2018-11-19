@@ -32,6 +32,8 @@
   <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+  <!-- intro js -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
   <!-- Style.css -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
@@ -175,7 +177,7 @@
                       <div class="row align-items-center">
                           <div class="col-md-1">
                               <div class="page-header-title">
-                                  <a href="role-list" class="waves-effect waves-dark"><- Back to Roles</a>
+                                  <a href="role-list" class="waves-effect waves-dark" id="backToRoles"><- Back to Roles</a>
                               </div>
                           </div>
                           <div class="col-md-11">
@@ -199,7 +201,7 @@
                         <div class="card">
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" data-step="1" data-intro="Here you can see all your details">
                                         <thead>
                                             <tr>
                                                 <th>Role</th>
@@ -223,7 +225,7 @@
                         <div class="card">
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover" data-step="2" data-intro="Now you can activate or deactivate permissions. Click all permissions to allow everything MDM related.">
                                         <tbody>
                                             <% permissions.forEach(function(p, index){ %>
                                             <tr>
@@ -268,6 +270,8 @@
   <!-- modernizr js -->
   <script type="text/javascript" src="assets/js/SmoothScroll.js"></script>
   <script src="assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
+  <!-- intro js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
   <!-- Custom js -->
   <script src="assets/js/pcoded.min.js"></script>
   <script src="assets/js/vertical-layout.min.js "></script>
@@ -275,19 +279,25 @@
   <script type="text/javascript" src="assets/js/script.js"></script>
 
   <script type="text/javascript">
-  $('.activate-permission').click(function() {
-    let operation = 'activate';
+  $(document).ready(() => {
+    introJs().setOption('doneLabel', 'Move to groups').start().oncomplete(function() {
+      window.location.href = 'group-list';
+    });
 
-    if ($(this).text() === 'x') {
-      $(this).text('+');
+    $('.activate-permission').click(function () {
+      let operation = 'activate';
 
-      operation = 'deactivate';
-    } else {
-      $(this).text('x');
-    }
+      if ($(this).text() === 'x') {
+        $(this).text('+');
 
-    const role = $(this).parents('tr').find('input:hidden').val();
-    $.post("permission-" + operation, { role } );
+        operation = 'deactivate';
+      } else {
+        $(this).text('x');
+      }
+
+      const role = $(this).parents('tr').find('input:hidden').val();
+      $.post("permission-" + operation, { role });
+    });
   });
   </script>
 </body>

@@ -32,6 +32,8 @@
   <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+  <!-- intro js -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
   <!-- Style.css -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
@@ -178,8 +180,8 @@
                                   <h5 class="m-b-10">Roles</h5>
                               </div>
                           </div>
-                          <div class="col-md-1">
-                            <form action="role-add" method="GET">
+                          <div class="col-md-1" data-step="2" data-intro="Let's first create a role for our operations">
+                            <form action="role-add" method="GET" name="formAddRole">
                               <button type="submit" class="btn btn-primary btn-round waves-effect waves-light">Add Role +</button>
                             </form>
                           </div>
@@ -199,7 +201,7 @@
                         <div class="card">
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover" data-step="1" data-intro="You can see all your roles from here">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -251,11 +253,23 @@
   <!-- modernizr js -->
   <script type="text/javascript" src="assets/js/SmoothScroll.js"></script>
   <script src="assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
+
+  <!-- intro js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+
   <!-- Custom js -->
   <script src="assets/js/pcoded.min.js"></script>
   <script src="assets/js/vertical-layout.min.js "></script>
   <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
   <script type="text/javascript" src="assets/js/script.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(() => {
+    introJs().setOption('doneLabel', 'Add Role').start().oncomplete(function() {
+      $('form[name=formAddRole]').submit();
+    });
+  });
+  </script>
 </body>
 
 </html>
