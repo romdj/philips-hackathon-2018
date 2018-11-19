@@ -212,13 +212,13 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <% users.forEach(function(user, index){ %>
+                                                                    <% userList.forEach(function(user, index){ %>
                                                                     <tr>
                                                                         <th scope="row"><%= index + 1%></th>
                                                                         <td><%= user.email %></td>
                                                                         <td><%= user.firstname %></td>
-                                                                        <td><%= role.lastname %></td>
-                                                                        <td><%= role.organization %></td>
+                                                                        <td><%= user.lastname %></td>
+                                                                        <td><%= user.organization %></td>
                                                                     </tr>
                                                                     <% }); %>
                                                                 </tbody>
