@@ -146,7 +146,7 @@
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
-                <li class="active">
+                <li class="">
                   <a href="group-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Groups</span>
@@ -185,7 +185,7 @@
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
-                <li class=" ">
+                <li class="active">
                   <a href="device-group-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Device Group</span>
@@ -216,12 +216,12 @@
                       <div class="row align-items-center">
                           <div class="col-md-1">
                               <div class="page-header-title">
-                                  <a href="group-list" class="waves-effect waves-dark"><- Back to Groups</a>
+                                  <a href="device-group-list" class="waves-effect waves-dark"><- Back to Device Groups</a>
                               </div>
                           </div>
                           <div class="col-md-11">
                               <div class="page-header-title">
-                                  <h5 class="m-b-10">Create Group</h5>
+                                  <h5 class="m-b-10">Create Device Group</h5>
                               </div>
                           </div>
                       </div>
@@ -237,26 +237,26 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <!-- Basic Form Inputs card start -->
-                        <div class="card" data-step="1" data-intro="Here you can set all details about your group">
+                        <div class="card" data-step="1" data-intro="Here you can set all details about your device group">
                           <div class="card-block">
-                            <form action="group-details" method="POST" name="formCreateGroup">
+                            <form action="device-group-add" method="POST" name="formCreateDeviceGroup">
                               <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Name*</label>
                                 <div class="col-sm-10">
-                                  <input type="text" name="name" class="form-control" placeholder="Group Name" value="Sample Group" data-step="2" data-intro="Name of the group">
+                                  <input type="text" name="name" class="form-control" placeholder="Device Group Name" value="Sample Device Group" data-step="2" data-intro="Name of the device group">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
-                                  <textarea name="description" rows="5" cols="5" class="form-control" placeholder="Group Description" data-step="3" data-intro="You can put some descriptions for your group. This helps you easier to understand after.">Sample description for Sample Group of Sample Organization</textarea>
+                                  <textarea name="description" rows="5" cols="5" class="form-control" placeholder="Device Group Description" data-step="3" data-intro="You can put some descriptions for your device group. This helps you easier to understand after.">Sample description for Sample Device Group of Sample Organization</textarea>
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Organization*</label>
+                                <label class="col-sm-2 col-form-label">Application*</label>
                                 <div class="col-sm-10">
-                                  <select name="organization" class="form-control" data-step="4" data-intro="Select preferred organization for your group">
-                                    <option value="sampleorg">Sample Organization</option>
+                                  <select name="application" class="form-control" data-step="4" data-intro="Select preferred application for your device group">
+                                    <option value="sampleapp">Sample Application</option>
                                   </select>
                                 </div>
                               </div>
@@ -264,7 +264,7 @@
                                 <label class="col-sm-4"></label>
                                 <div class="col-sm-6">
                                   <button type="reset" class="btn btn-inverse btn-round waves-effect waves-light">Reset</button>
-                                  <button type="submit" class="btn btn-primary btn-round waves-effect waves-light" data-step="5" data-intro="Now we can create our group and move on to the permission part">Submit</button>
+                                  <button type="submit" class="btn btn-primary btn-round waves-effect waves-light" data-step="5" data-intro="Now we can create our device group and move on to the permission part">Submit</button>
                                 </div>
                               </div>
                             </form>
@@ -307,8 +307,8 @@
 
   <script type="text/javascript">
   $(document).ready(() => {
-    introJs().setOption('doneLabel', 'Create Group').start().oncomplete(function() {
-      $('form[name=formCreateGroup]').submit();
+    introJs().setOption('doneLabel', 'Create Device Group').start().oncomplete(function() {
+      $('form[name=formCreateDeviceGroup]').submit();
     });
   });
   </script>
