@@ -31,10 +31,12 @@ app.get('/role-add', (req, res) => {
 });
 
 app.post('/role-details', (req, res) => {
-  console.log(req.body.name);
-  console.log(req.body.description);
-  console.log(req.body.organization);
-  req.body.id = 'ID_UUID';
+  const role = {
+    name: req.body.name,
+    description: req.body.description,
+    organization: req.body.organization,
+    id: 'ID_UUID'
+  };
 
   // Create role
 
@@ -44,17 +46,21 @@ app.post('/role-details', (req, res) => {
     { active: true, name: 'MDM.ADMINISTRATOR', description: 'Admin role for MDM' }
   ];
 
-  res.render('role-details.html', { role: req.body, permissions });
+  res.render('role-details.html', { role, permissions });
 });
 
 app.post('/permission-activate', (req, res) => {
-  console.log(req.body.role);
+  const roleName = req.body.role;
   res.send({success: true});
 });
 
 app.post('/permission-deactivate', (req, res) => {
-  console.log(req.body.role);
+  const roleName = req.body.role;
   res.send({success: true});
+});
+
+app.get('group-list', (req, res) => {
+  res.render('groups-list.html');
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
