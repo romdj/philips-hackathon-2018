@@ -171,4 +171,15 @@ app.get('/groups', (req, res) => {
   res.render('groups.html');
 });
 
+app.get('/newproposition', (req, res) => {
+  res.render('create-proposition.html');
+});
+
+app.get('/newapplication', (req, res) => {
+  res.render('create-application.html');
+});
+app.post('/create-application', (req, res) => {
+  res.render('create-application.html');
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
