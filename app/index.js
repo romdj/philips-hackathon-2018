@@ -38,6 +38,28 @@ app.set('views', path.join(process.cwd() + '/ui/'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
+app.get('', (req, res) => {
+  res.redirect('user-list');
+});
+
+app.get('/user-list', (req, res) => {
+    // res.render('role-list.html', {roles});
+  res.render('users.html', {userList});
+});
+
+app.get('/user-add', (req, res) => {
+    // res.render('role-list.html', {roles});
+  res.render('user-add.html');
+});
+
+app.post('/user-add', (req, res) => {
+  req.body.id = 'ID_UUID';
+  // Create user
+  userList.push({firstname: req.body.firstname, lastname: req.body.lastname,email: req.body.email, organization: req.body.organization});
+
+  res.redirect('role-list');
+});
+
 app.get('/role-list', (req, res) => {
   const roles = [
     { name: "Mark", description: "Otto", organization: "@mdo", permissionCount: 12},
@@ -149,26 +171,42 @@ app.post('/role-deactivate', (req, res) => {
   res.send({success: true});
 });
 
-app.post('/user-details', (req, res) => {
-  req.body.id = 'ID_UUID';
-  // Create user
-  userList.push({firstname: req.body.firstname, lastname: req.body.lastname,email: req.body.email, organization: req.body.organization});
-  res.render('users.html', {userList});
-});
-
 app.get('/organizations', (req, res) => {
   res.render('organizations.html');
 });
 
-
-app.get('/users', (req, res) => {
-    // res.render('role-list.html', {roles});
-  res.render('users.html', {userList});
-});
-
-
 app.get('/groups', (req, res) => {
   res.render('groups.html');
+});
+
+app.get('/device-group-add', (req, res) => {
+  res.render('device-group-add.html');
+});
+
+app.post('/device-group-add', (req, res) => {
+  // POST device group
+  res.redirect('device-type-add');
+});
+
+app.get('/device-type-add', (req, res) => {
+  res.render('device-type-add.html');
+});
+
+app.post('/device-type-add', (req, res) => {
+  // POST device type
+  res.redirect('oauth-client-add');
+});
+
+app.get('/oauth-client-add', (req, res) => {
+  res.render('oauth-client-add.html');
+});
+
+app.post('/oauth-client-add', (req, res) => {
+  // POST oauth client
+
+  // Download SDK
+  var file = '/home/aykut/Downloads/template.zip';
+  res.download(file); // Set disposition and send it.
 });
 
 app.get('/newproposition', (req, res) => {

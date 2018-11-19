@@ -131,40 +131,79 @@
         <div class="pcoded-wrapper">
           <nav class="pcoded-navbar">
             <div class="pcoded-inner-navbar main-menu">
-              <div class="pcoded-navigation-label" data-i18n="nav.category.navigation"></div>
+              <div class="pcoded-navigation-label" data-i18n="nav.category.navigation" menu-title-theme="theme1">IAM</div>
               <ul class="pcoded-item pcoded-left-item">
                 <li class=" ">
-                  <a href="accordion.html" class="waves-effect waves-dark">
+                  <a href="/" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Home</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
                 <li class=" ">
-                  <a href="breadcrumb.html" class="waves-effect waves-dark">
+                  <a href="ogranization-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Orgs</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
-                <li class=" ">
-                  <a href="button.html" class="waves-effect waves-dark">
+                <li class="">
+                  <a href="group-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Groups</span>
-                    <span class="pcoded-mcaret"></span>
-                  </a>
-                </li>
-                <li class=" ">
-                  <a href="tabs.html" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Users</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
                 <li class="active">
                   <a href="users" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Users</span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Users</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="role-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Roles</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="pcoded-navigation-label" data-i18n="nav.category.navigation" menu-title-theme="theme1">MDM</div>
+              <ul class="pcoded-item pcoded-left-item">
+                <li class=" ">
+                  <a href="proposition-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Proposition</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="application-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Application / OAuthClient</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="device-group-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Device Group</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="device-type-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Device Type</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="service-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Service</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
@@ -201,35 +240,35 @@
                         <!-- Basic Form Inputs card start -->
                         <div class="card" data-step="1" data-intro="Here you can set all the user details">
                           <div class="card-block">
-                            <form action="user-details" method="POST">
-                              <div class="form-group row">
+                            <form action="user-add" method="POST" name="formCreateUser">
+                              <div class="form-group row" data-step="2" data-intro="Your first name">
                                 <label class="col-sm-2 col-form-label">First Name*</label>
                                 <div class="col-sm-10">
-                                  <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                                  <input type="text" name="firstname" class="form-control" placeholder="First Name" value="John">
                                 </div>
                               </div>
-                              <div class="form-group row">
+                              <div class="form-group row" data-step="3" data-intro="Last name">
                                 <label class="col-sm-2 col-form-label">Last Name*</label>
                                 <div class="col-sm-10">
-                                  <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                                  <input type="text" name="lastname" class="form-control" placeholder="Last Name" value="Doe">
                                 </div>
                               </div>
-                              <div class="form-group row">
+                              <div class="form-group row" data-step="4" data-intro="Mobile phone">
                                 <label class="col-sm-2 col-form-label">Mobile Phone</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="mobile" class="form-control" placeholder="+31-1234567800">
+                                    <input type="text" name="mobile" class="form-control" placeholder="+31-1234567800" value="+31-1234567800">
                                 </div>
                               </div>
-                              <div class="form-group row">
+                              <div class="form-group row" data-step="5" data-intro="Email address">
                                 <label class="col-sm-2 col-form-label">Email address</label>
                                 <div class="col-sm-10">
-                                    <input type="email" name="email" class="form-control" placeholder="user@organization.xyz">
+                                    <input type="email" name="email" class="form-control" placeholder="user@organization.xyz" value="john.doe@philips.com">
                                 </div>
                               </div>
-                              <div class="form-group row">
+                              <div class="form-group row" data-step="6" data-intro="Your organization">
                                   <label class="col-sm-2 col-form-label" for="exampleFormControlSelect1">Organization*</label>
                                   <select class="col-sm-9 form-control" name="org" id="exampleFormControlSelect1">
-                                    <option>Organization1</option>
+                                    <option value="sampleorg">Sample Organization</option>
                                     <option>Organization2</option>
                                     <option>Organization3</option>
                                     <option>Organization4</option>
@@ -241,7 +280,7 @@
                                 <label class="col-sm-4"></label>
                                 <div class="col-sm-6">
                                   <button type="reset" class="btn btn-inverse btn-round waves-effect waves-light">Reset</button>
-                                  <button type="submit" class="btn btn-primary btn-round waves-effect waves-light" data-step="2" data-intro="Now we can create our new user and move on to the list, we are ready to move on!">Submit</button>
+                                  <button type="submit" class="btn btn-primary btn-round waves-effect waves-light" data-step="7" data-intro="Now we can create our new user and move on to the list, we are ready to move on!">Submit</button>
                                 </div>
                               </div>
                             </form>
