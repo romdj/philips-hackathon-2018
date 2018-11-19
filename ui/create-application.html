@@ -210,6 +210,23 @@
             </div>
           </nav>
 
+          <div class="pcoded-content">
+              <div class="page-header">
+                  <div class="page-block">
+                      <div class="row align-items-center">
+                          <div class="col-md-1">
+                              <div class="page-header-title">
+                                  <a href="group-list" class="waves-effect waves-dark"><- Back to Groups</a>
+                              </div>
+                          </div>
+                          <div class="col-md-11">
+                              <div class="page-header-title">
+                                  <h5 class="m-b-10">Create Group</h5>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           <div class="pcoded-inner-content">
               <!-- Main-body start -->
               <div class="main-body">
@@ -222,7 +239,7 @@
                         <!-- Basic Form Inputs card start -->
                         <div class="card" data-step="2" data-intro="Here you can set all the user details">
                           <div class="card-block">
-                            <form action="device-group-add" method="POST">
+                            <form action="device-group-add" method="POST" name="formAddApplication">
                               <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Application Name*</label>
                                 <div class="col-sm-10">
@@ -251,10 +268,12 @@
                   </div>
                 </div>
               </div>
+              
             </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
   <!-- Required Jquery -->
@@ -283,7 +302,7 @@
   <script type="text/javascript">
   $(document).ready(() => {
     introJs().setOption('doneLabel', 'Add Group').start().oncomplete(function() {
-      $('form[name=formAddGroup]').submit();
+      $('form[name=formAddApplication]').submit();
     });
   });
   </script>

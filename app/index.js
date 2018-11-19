@@ -205,18 +205,19 @@ app.post('/oauth-client-add', (req, res) => {
   // POST oauth client
 
   // Download SDK
-  var file = '/home/aykut/Downloads/template.zip';
+  var file = '../template.zip';
   res.download(file); // Set disposition and send it.
 });
 
-app.get('/newproposition', (req, res) => {
+app.get('/proposition-add', (req, res) => {
   res.render('create-proposition.html');
 });
 
-app.get('/newapplication', (req, res) => {
+app.get('/application-add', (req, res) => {
   res.render('create-application.html');
 });
-app.post('/create-application', (req, res) => {
+
+app.post('/application-add', (req, res) => {
   res.render('create-application.html');
 });
 
