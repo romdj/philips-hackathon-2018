@@ -159,7 +159,7 @@
                   </a>
                 </li>
                 <li class="active">
-                  <a href="role-list.html" class="waves-effect waves-dark">
+                  <a href="role-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Roles</span>
                     <span class="pcoded-mcaret"></span>
@@ -179,7 +179,7 @@
                               </div>
                           </div>
                           <div class="col-md-1">
-                            <form action="role-add.html" method="GET">
+                            <form action="role-add" method="GET">
                               <button type="submit" class="btn btn-primary btn-round waves-effect waves-light">Add Role +</button>
                             </form>
                           </div>
@@ -210,27 +210,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <% roles.forEach(function(role, index){ %>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>12</td>
+                                                <th scope="row"><%= index + 1%></th>
+                                                <td><%= role.name %></td>
+                                                <td><%= role.description %></td>
+                                                <td><%= role.organization %></td>
+                                                <td><%= role.permissionCount %></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>2</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                                <td>188</td>
-                                            </tr>
+                                            <% }); %>
                                         </tbody>
                                     </table>
                                 </div>
