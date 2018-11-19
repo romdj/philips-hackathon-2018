@@ -130,31 +130,31 @@
         <div class="pcoded-wrapper">
           <nav class="pcoded-navbar">
             <div class="pcoded-inner-navbar main-menu">
-              <div class="pcoded-navigation-label" data-i18n="nav.category.navigation"></div>
+              <div class="pcoded-navigation-label" data-i18n="nav.category.navigation" menu-title-theme="theme1">IAM</div>
               <ul class="pcoded-item pcoded-left-item">
                 <li class=" ">
-                  <a href="accordion.html" class="waves-effect waves-dark">
+                  <a href="/" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Home</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
                 <li class=" ">
-                  <a href="breadcrumb.html" class="waves-effect waves-dark">
+                  <a href="ogranization-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Orgs</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
                 <li class=" ">
-                  <a href="button.html" class="waves-effect waves-dark">
+                  <a href="group-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Groups</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
                 <li class=" ">
-                  <a href="tabs.html" class="waves-effect waves-dark">
+                  <a href="users" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Users</span>
                     <span class="pcoded-mcaret"></span>
@@ -164,6 +164,45 @@
                   <a href="role-list" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Roles</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="pcoded-navigation-label" data-i18n="nav.category.navigation" menu-title-theme="theme1">MDM</div>
+              <ul class="pcoded-item pcoded-left-item">
+                <li class=" ">
+                  <a href="proposition-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Proposition</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="application-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Application / OAuthClient</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="device-group-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Device Group</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="device-type-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Device Type</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="service-list" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Service</span>
                     <span class="pcoded-mcaret"></span>
                   </a>
                 </li>
@@ -223,6 +262,9 @@
                             </div>
                         </div>
                         <div class="card">
+                            <div class="card-header">
+                                <h5>Roles</h5>
+                            </div>
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
                                     <table class="table table-hover" data-step="2" data-intro="Now you can activate or deactivate your roles. Click + sign for the Sample Role to add that role to group.">
@@ -244,6 +286,9 @@
                             </div>
                         </div>
                         <div class="card">
+                            <div class="card-header">
+                                <h5>Users</h5>
+                            </div>
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
                                     <table class="table table-hover" data-step="3" data-intro="Role is added to the group. Now click + sign for the Sample User to add that user to the group.">
@@ -302,7 +347,7 @@
   <script type="text/javascript">
   $(document).ready(() => {
     introJs().setOption('doneLabel', 'Move to MDM').start().oncomplete(function() {
-      window.location.href = 'group-list';
+      window.location.href = 'proposition-list';
     });
 
     $('.activate-user').click(function () {
