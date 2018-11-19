@@ -5,25 +5,25 @@ const path = require('path');
 const port = 3000
 
 const userList = [{
-  email: "johndoe@company1.com",
+  email: "johndoe@xhealthcompany.com",
   firstname: "John",
   lastname: "Doe",
-  organization: "company1"
+  organization: "XHealthCompany"
 }, {
-  email: "johannadoe@company2.com",
+  email: "johannadoe@xhealthcompany.com",
   firstname: "Johanna",
   lastname: "Doe",
-  organization: "company2"
+  organization: "XHealthCompany"
 }, {
-  email: "mikesmith@company3.com",
+  email: "mikesmith@xhealthcompany.com",
   firstname: "Mike",
   lastname: "Smith",
-  organization: "company3"
+  organization: "XHealthCompany"
 }, {
-  email: "michellemccarraon@company4.com",
+  email: "michellemccarraon@xhealthcompany.com",
   firstname: "Michelle",
   lastname: "McCarron",
-  organization: "company4"
+  organization: "XHealthCompany"
 }];
 
 // For CDN of css and so
@@ -62,19 +62,7 @@ app.post('/user-add', (req, res) => {
 
 app.get('/role-list', (req, res) => {
   const roles = [
-    { name: "Mark", description: "Otto", organization: "@mdo", permissionCount: 12},
-    { name: "Jacob", description: "Thornton", organization: "@fat", permissionCount: 2},
-    { name: "Larry", description: "the Bird", organization: "@twitter", permissionCount: 188}
-  ];
-
-  res.render('role-list.html', {roles});
-});
-
-app.get('/roles', (req, res) => {
-  const roles = [
-    { name: "Mark", description: "Otto", organization: "@mdo", permissionCount: 12},
-    { name: "Jacob", description: "Thornton", organization: "@fat", permissionCount: 2},
-    { name: "Larry", description: "the Bird", organization: "@twitter", permissionCount: 188}
+    { name: "RootAdmin", description: "Root admin role", organization: "XHealthCompany", permissionCount: 12}
   ];
 
   res.render('role-list.html', {roles});
@@ -88,16 +76,14 @@ app.post('/role-details', (req, res) => {
   const role = {
     name: req.body.name,
     description: req.body.description,
-    organization: req.body.organization,
-    id: 'ID_UUID'
+    organization: 'XHealthCompany',
+    id: 'ed907290-6579-4291-bd0b-90a6100c6840'
   };
 
   // Create role
 
   const permissions = [
-    { active: false, name: 'ROLE.WRITE', description: 'Role write permission' },
-    { active: false, name: 'ORG.READ', description: 'Read from an org' },
-    { active: true, name: 'MDM.ADMINISTRATOR', description: 'Admin role for MDM' }
+    { active: false, name: 'MDM.ADMINISTRATOR', description: 'Admin role for MDM' }
   ];
 
   res.render('role-details.html', { role: req.body, permissions });
@@ -115,9 +101,7 @@ app.post('/permission-deactivate', (req, res) => {
 
 app.get('/group-list', (req, res) => {
   const groups = [
-    { name: "Mark", description: "Otto", organization: "@mdo", roleCount: 12, userCount: 8},
-    { name: "Jacob", description: "Thornton", organization: "@fat", roleCount: 2, userCount: 120},
-    { name: "Larry", description: "the Bird", organization: "@twitter", roleCount: 188, userCount: 98}
+    { name: "XHealthCompanyRoot", description: "Root group for organization", organization: "XHealthCompany", roleCount: 12, userCount: 8},
   ];
 
   res.render('group-list.html', {groups});
@@ -132,20 +116,18 @@ app.post('/group-details', (req, res) => {
   const group = {
     name: req.body.name,
     description: req.body.description,
-    organization: req.body.organization,
-    id: 'ID_UUID'
+    organization: 'XHealthCompany',
+    id: 'ed907290-6579-4291-bd0b-90a6100c6840'
   };
 
   // Create group
 
   const roles = [
-    { active: false, name: 'Sample Role', description: 'Sample role for sample' },
-    { active: true, name: 'Sample Role 2', description: 'Some more' }
+    { active: false, name: 'PropositionAdmins', description: 'This role is for PropositionAdmins of XHealthCompany' },
   ];
 
   const users = [
-    { active: true, name: 'Sample User 1', description: 'Sample user for sample' },
-    { active: false, name: 'Sample User 2', description: 'Some more' }
+    { active: false, name: 'Proposition Admin', description: 'proposition.admin@xhealthcompany.com' },
   ];
 
   res.render('group-details.html', { group, roles, users });
@@ -205,7 +187,7 @@ app.post('/oauth-client-add', (req, res) => {
   // POST oauth client
 
   // Download SDK
-  var file = '../template.zip';
+  var file = '../sample-device-application.zip';
   res.download(file); // Set disposition and send it.
 });
 

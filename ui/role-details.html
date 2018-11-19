@@ -230,9 +230,9 @@
                                             <% permissions.forEach(function(p, index){ %>
                                             <tr>
                                               <% if(p.active) { %>
-                                                <th scope="row"><button class="activate-permission btn waves-effect waves-light btn-primary btn-outline-primary">+</button></th>
-                                              <% } else { %>
                                                 <th scope="row"><button class="activate-permission btn waves-effect waves-light btn-primary btn-outline-primary">x</button></th>
+                                              <% } else { %>
+                                                <th scope="row"><button class="activate-permission btn waves-effect waves-light btn-primary btn-outline-primary">+</button></th>
                                               <% } %>
                                                 <td><%= p.name %> <input type="hidden" name="name" value="<%= p.name %>" /></td>
                                                 <td><%= p.description %></td>
