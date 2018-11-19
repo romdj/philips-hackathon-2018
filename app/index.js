@@ -187,8 +187,8 @@ app.post('/oauth-client-add', (req, res) => {
   // POST oauth client
 
   // Download SDK
-  var file = '../sample-device-application.zip';
-  res.download(file); // Set disposition and send it.
+  var file = '../sample-msnet-device-application.zip';
+  res.download(file);
 });
 
 app.get('/proposition-add', (req, res) => {
