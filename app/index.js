@@ -20,6 +20,7 @@ app.get('/roles', (req, res) => {
   res.render('role-list.html');
 });
 
+
 app.get('/role-add', (req, res) => {
   res.render('role-add.html');
 });
@@ -33,6 +34,21 @@ app.post('/role-details', (req, res) => {
   // Create role
 
   res.render('role-details.html', req.body);
+});
+
+app.post('/user-details', (req, res) => {
+  console.log(req.body.name);
+  console.log(req.body.description);
+  console.log(req.body.organization);
+  req.body.id = 'ID_UUID';
+
+  // Create user
+
+  res.render('user-details.html', req.body);
+});
+
+app.get('/users', (req, res) => {
+  res.render('users.html');
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
