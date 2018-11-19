@@ -91,8 +91,62 @@ app.post('/permission-deactivate', (req, res) => {
   res.send({success: true});
 });
 
-app.get('group-list', (req, res) => {
-  res.render('groups-list.html');
+app.get('/group-list', (req, res) => {
+  const groups = [
+    { name: "Mark", description: "Otto", organization: "@mdo", roleCount: 12, userCount: 8},
+    { name: "Jacob", description: "Thornton", organization: "@fat", roleCount: 2, userCount: 120},
+    { name: "Larry", description: "the Bird", organization: "@twitter", roleCount: 188, userCount: 98}
+  ];
+
+  res.render('group-list.html', {groups});
+});
+
+
+app.get('/group-add', (req, res) => {
+  res.render('group-add.html');
+});
+
+app.post('/group-details', (req, res) => {
+  const group = {
+    name: req.body.name,
+    description: req.body.description,
+    organization: req.body.organization,
+    id: 'ID_UUID'
+  };
+
+  // Create group
+
+  const roles = [
+    { active: false, name: 'Sample Role', description: 'Sample role for sample' },
+    { active: true, name: 'Sample Role 2', description: 'Some more' }
+  ];
+
+  const users = [
+    { active: true, name: 'Sample User 1', description: 'Sample user for sample' },
+    { active: false, name: 'Sample User 2', description: 'Some more' }
+  ];
+
+  res.render('group-details.html', { group, roles, users });
+});
+
+app.post('/user-activate', (req, res) => {
+  const roleName = req.body.user;
+  res.send({success: true});
+});
+
+app.post('/user-deactivate', (req, res) => {
+  const roleName = req.body.user;
+  res.send({success: true});
+});
+
+app.post('/role-activate', (req, res) => {
+  const roleName = req.body.role;
+  res.send({success: true});
+});
+
+app.post('/role-deactivate', (req, res) => {
+  const roleName = req.body.role;
+  res.send({success: true});
 });
 
 app.post('/user-details', (req, res) => {
