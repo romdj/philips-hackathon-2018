@@ -26,6 +26,7 @@ app.get('/role-list', (req, res) => {
   res.render('role-list.html', {roles});
 });
 
+
 app.get('/role-add', (req, res) => {
   res.render('role-add.html');
 });
@@ -61,6 +62,21 @@ app.post('/permission-deactivate', (req, res) => {
 
 app.get('group-list', (req, res) => {
   res.render('groups-list.html');
+});
+
+app.post('/user-details', (req, res) => {
+  console.log(req.body.name);
+  console.log(req.body.description);
+  console.log(req.body.organization);
+  req.body.id = 'ID_UUID';
+
+  // Create user
+
+  res.render('user-details.html', req.body);
+});
+
+app.get('/users', (req, res) => {
+  res.render('users.html');
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
