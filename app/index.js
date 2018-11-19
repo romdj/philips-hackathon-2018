@@ -45,6 +45,28 @@ app.post('/role-details', (req, res) => {
     { active: true, name: 'MDM.ADMINISTRATOR', description: 'Admin role for MDM' }
   ];
 
+  const users = [{
+    email: "johndoe@company1.com",
+    firstname: "John",
+    lastname: "Doe",
+    organization: "company1"
+  }, {
+    email: "johannadoe@company2.com",
+    firstname: "Johanna",
+    lastname: "Doe",
+    organization: "company2"
+  }, {
+    email: "mikesmith@company3.com",
+    firstname: "Mike",
+    lastname: "Smith",
+    organization: "company3"
+  }, {
+    email: "michellemccarraon@company4.com",
+    firstname: "Michelle",
+    lastname: "McCarron",
+    organization: "company4"
+  }]
+
   res.render('role-details.html', { role: req.body, permissions });
 });
 
@@ -69,8 +91,20 @@ app.post('/user-details', (req, res) => {
   res.render('user-details.html', req.body);
 });
 
+app.get('/organizations', (req, res) => {
+  res.render('organizations.html');
+});
+
 app.get('/users', (req, res) => {
   res.render('users.html');
+});
+
+app.get('/roles', (req, res) => {
+  res.render('role-list.html');
+});
+
+app.get('/groups', (req, res) => {
+  res.render('groups.html');
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
