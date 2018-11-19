@@ -35,7 +35,11 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+    <!-- intro js -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
+  
 
+    
 </head>
 
 <body>
@@ -179,8 +183,8 @@
                                             <h5 class="m-b-10">Users</h5>
                                         </div>
                                     </div>
-                                    <div class="col-md-1">
-                                        <form action="user-add.html" method="GET">
+                                    <div class="col-md-1" data-step="2" data-intro="Let's now create a new user for our operations">
+                                        <form action="user-add.html" method="GET" name="formAddUser">
                                             <button type="submit" class="btn btn-primary btn-round waves-effect waves-light">Add
                                                 User +</button>
                                         </form>
@@ -201,7 +205,7 @@
                                                 <div class="card">
                                                     <div class="card-block table-border-style">
                                                         <div class="table-responsive">
-                                                            <table class="table table-hover">
+                                                            <table class="table table-hover" data-step="1" data-intro="You can see all your users from here">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>#</th>
@@ -214,11 +218,21 @@
                                                                 <tbody>
                                                                     <% userList.forEach(function(user, index){ %>
                                                                     <tr>
-                                                                        <th scope="row"><%= index + 1%></th>
-                                                                        <td><%= user.email %></td>
-                                                                        <td><%= user.firstname %></td>
-                                                                        <td><%= user.lastname %></td>
-                                                                        <td><%= user.organization %></td>
+                                                                        <th scope="row">
+                                                                            <%= index + 1%>
+                                                                        </th>
+                                                                        <td>
+                                                                            <%= user.email %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= user.firstname %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= user.lastname %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= user.organization %>
+                                                                        </td>
                                                                     </tr>
                                                                     <% }); %>
                                                                 </tbody>
@@ -258,6 +272,15 @@
     <script src="assets/js/vertical-layout.min.js "></script>
     <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
+    <!-- Intro Js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            introJs().setOption('doneLabel', 'Add User').start().oncomplete(function () {
+                $('form[name=formAddUser]').submit();
+            });
+        });
+    </script>
 </body>
 
 </html>

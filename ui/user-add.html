@@ -35,6 +35,9 @@
   <!-- Style.css -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+  <!-- intro js -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
+  
 
 </head>
 
@@ -196,7 +199,7 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <!-- Basic Form Inputs card start -->
-                        <div class="card">
+                        <div class="card" data-step="1" data-intro="Here you can set all the user details">
                           <div class="card-block">
                             <form action="user-details" method="POST">
                               <div class="form-group row">
@@ -238,7 +241,7 @@
                                 <label class="col-sm-4"></label>
                                 <div class="col-sm-6">
                                   <button type="reset" class="btn btn-inverse btn-round waves-effect waves-light">Reset</button>
-                                  <button type="submit" class="btn btn-primary btn-round waves-effect waves-light">Submit</button>
+                                  <button type="submit" class="btn btn-primary btn-round waves-effect waves-light" data-step="2" data-intro="Now we can create our new user and move on to the list, we are ready to move on!">Submit</button>
                                 </div>
                               </div>
                             </form>
@@ -276,6 +279,15 @@
   <script src="assets/js/vertical-layout.min.js "></script>
   <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
   <script type="text/javascript" src="assets/js/script.js"></script>
+  <!-- intro js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(() => {
+    introJs().setOption('doneLabel', 'Create User').start().oncomplete(function() {
+      $('form[name=formCreateUser]').submit();
+    });
+  });
+  </script>
 </body>
 
 </html>
