@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const path = require('path');
+const request = require('request');
+const rp = require('request-promise-native');
 const port = 3000
 
 const userList = [{
@@ -42,30 +44,56 @@ app.get('', (req, res) => {
   res.redirect('user-list');
 });
 
+app.get('/test', (req, res) => {
+  res.render('test-request.html', { response: null });
+});
+
+app.post('/test-request', (req, res) => {
+  const sampleUrl = 'https://postb.in/CLsjdFZT';
+  const options = {
+    method: 'POST',
+    uri: sampleUrl,
+    resolveWithFullResponse: false,
+    body: req.body,
+    json: true,
+    headers: {
+      'User-Agent': 'curl/7.63.0',
+      'accept': '*/*',
+      'content-type': 'application/json'
+    }
+  };
+
+  rp(options)
+    .then(str => {
+      res.render('test-request.html', { response: str });
+    })
+    .catch(err => console.error(err));
+});
+
 app.get('/user-list', (req, res) => {
-    // res.render('role-list.html', {roles});
-  res.render('users.html', {userList});
+  // res.render('role-list.html', {roles});
+  res.render('users.html', { userList });
 });
 
 app.get('/user-add', (req, res) => {
-    // res.render('role-list.html', {roles});
+  // res.render('role-list.html', {roles});
   res.render('user-add.html');
 });
 
 app.post('/user-add', (req, res) => {
   req.body.id = 'ID_UUID';
   // Create user
-  userList.push({firstname: req.body.firstname, lastname: req.body.lastname,email: req.body.email, organization: req.body.organization});
+  userList.push({ firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, organization: req.body.organization });
 
   res.redirect('role-list');
 });
 
 app.get('/role-list', (req, res) => {
   const roles = [
-    { name: "RootAdmin", description: "Root admin role", organization: "XHealthCompany", permissionCount: 12}
+    { name: "RootAdmin", description: "Root admin role", organization: "XHealthCompany", permissionCount: 12 }
   ];
 
-  res.render('role-list.html', {roles});
+  res.render('role-list.html', { roles });
 });
 
 app.get('/role-add', (req, res) => {
@@ -91,20 +119,20 @@ app.post('/role-details', (req, res) => {
 
 app.post('/permission-activate', (req, res) => {
   const roleName = req.body.role;
-  res.send({success: true});
+  res.send({ success: true });
 });
 
 app.post('/permission-deactivate', (req, res) => {
   const roleName = req.body.role;
-  res.send({success: true});
+  res.send({ success: true });
 });
 
 app.get('/group-list', (req, res) => {
   const groups = [
-    { name: "XHealthCompanyRoot", description: "Root group for organization", organization: "XHealthCompany", roleCount: 12, userCount: 8},
+    { name: "XHealthCompanyRoot", description: "Root group for organization", organization: "XHealthCompany", roleCount: 12, userCount: 8 },
   ];
 
-  res.render('group-list.html', {groups});
+  res.render('group-list.html', { groups });
 });
 
 
@@ -135,22 +163,22 @@ app.post('/group-details', (req, res) => {
 
 app.post('/user-activate', (req, res) => {
   const roleName = req.body.user;
-  res.send({success: true});
+  res.send({ success: true });
 });
 
 app.post('/user-deactivate', (req, res) => {
   const roleName = req.body.user;
-  res.send({success: true});
+  res.send({ success: true });
 });
 
 app.post('/role-activate', (req, res) => {
   const roleName = req.body.role;
-  res.send({success: true});
+  res.send({ success: true });
 });
 
 app.post('/role-deactivate', (req, res) => {
   const roleName = req.body.role;
-  res.send({success: true});
+  res.send({ success: true });
 });
 
 app.get('/organizations', (req, res) => {
